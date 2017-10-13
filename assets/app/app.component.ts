@@ -1,15 +1,27 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+
+import { Message } from './messages/message.model';
 
 @Component({
     selector: 'my-app',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-    public message: any = {
-        content: 'A message',
-        author: 'Nikolay'
+    public messages: Message[] = [
+        new Message('Some message', 'Nikolay'),
+        new Message('Something new', 'Nikolay')
+    ];
+
+    constructor() {}
+
+    public ngOnInit() { }
+
+    public handleEdit(value) {
+        this.messages.forEach(element => {
+            element.content = value;
+        });
     }
     
 }

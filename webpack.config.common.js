@@ -23,6 +23,13 @@ module.exports = {
                 test: /\.scss$/,
                 exclude: /node_modules/,
                 loaders: ['raw-loader', 'sass-loader'] // sass-loader not scss-loader
+            },
+            /*
+            * Bootstrap 4 loader
+            */
+            {
+                test: /bootstrap\/dist\/js\/umd\//,
+                use: 'imports-loader?jQuery=jquery'
             }
 
         ],

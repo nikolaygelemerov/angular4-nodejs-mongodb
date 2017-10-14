@@ -12,6 +12,7 @@ import {MessageService} from "./messages/services/message.service";
 import {MessagesComponent} from "./messages/components/messages/messages.component";
 import {AuthenticationComponent} from "./auth/components/authentication/authentication.component";
 import {HeaderComponent} from "./header.component";
+import {ROUTING} from "./app.routing";
 
 @NgModule({
     declarations: [
@@ -23,7 +24,7 @@ import {HeaderComponent} from "./header.component";
         AuthenticationComponent,
         HeaderComponent
     ],
-    imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpModule, RouterModule],
+    imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpModule, RouterModule, ROUTING],
     bootstrap: [AppComponent],
     providers: [MessageService]
 })

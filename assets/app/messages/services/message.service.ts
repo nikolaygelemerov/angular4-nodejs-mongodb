@@ -1,4 +1,4 @@
-import {Message} from "../message.model";
+import {Message} from "../configs/message.model";
 
 export class MessageService {
     public messages: Message[] = [];

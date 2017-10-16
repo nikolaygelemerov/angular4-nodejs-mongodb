@@ -1,0 +1,15 @@
+$font: 12px;
+
+.author {
+  display: inline-block;
+  font-style: italic;
+  font-size: 12px;
+  width: 80%;
+}
+
+.config {
+  display: inline-block;
+  text-align: right;
+  font-size: $font;
+  width: 19%;
+}

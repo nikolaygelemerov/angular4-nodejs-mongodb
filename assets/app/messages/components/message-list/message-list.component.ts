@@ -14,11 +14,11 @@ export class MessageListComponent implements OnInit {
 
     constructor(private messageService: MessageService) {}
 
-    public ngOnInit() {
+    public ngOnInit(): void {
         this.messages = this.messageService.getMessages();
     }
 
-    public handleEdit(value) {
+    public handleEdit(value): void {
         this.messages.forEach(element => {
             element.content = value;
         });

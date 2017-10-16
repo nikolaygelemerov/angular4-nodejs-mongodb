@@ -36,6 +36,10 @@
                     formControlName="password"
             />
         </div>
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <button
+                class="btn btn-primary"
+                type="submit"
+                [disabled]="!myForm.valid"
+        >Submit</button>
     </form>
 </div>

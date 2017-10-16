@@ -13,10 +13,11 @@ export class SignUpComponent implements OnInit {
         this.myForm = new FormGroup({
             firstName: new FormControl(null, Validators.required),
             lastName: new FormControl(null, Validators.required),
-            email: new FormControl(null, [
-                Validators.required,
-                Validators.pattern('/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/')
-            ]),
+            email: new FormControl(null,
+                [
+                    Validators.required,
+                    Validators.pattern(/^[\w._-]+[+]?[\w._-]+@[\w.-]+\.[a-zA-Z]{2,6}$/)
+                ]),
             password: new FormControl(null, Validators.required)
         });
     }

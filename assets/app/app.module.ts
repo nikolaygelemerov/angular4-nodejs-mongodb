@@ -6,7 +6,7 @@ import {RouterModule} from '@angular/router';
 import {AppComponent} from "./app.component";
 import {ROUTING} from "./app.routing";
 import {MessagesModule} from "./messages/messages.module";
-import {AuthModule} from "./auth.module";
+import {AuthModule} from "./auth/auth.module";
 import {HeaderComponent} from "./header.component";
 
 @NgModule({

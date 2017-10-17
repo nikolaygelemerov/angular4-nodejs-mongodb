@@ -4,6 +4,7 @@ import 'rxjs/Rx';
 
 import {Message} from "../configs/message.model";
 import {Observable} from "rxjs/Observable";
+import { Res } from "awesome-typescript-loader/dist/checker/protocol";
 
 @Injectable()
 
@@ -23,8 +24,21 @@ export class MessageService {
             .catch((error: Response) => Observable.throw(error.json()));
     }
 
-    public getMessages(): any[] {
-        return this.messages;
+    public getMessages(): Observable<any> {
+        return this.httpService.get('http://localhost:3000/message')
+            .map((response: Response) => {
+                const messages = response.json().obj;
+                let transformedMessages: Message[] = [];
+
+                for (let message of messages) {
+                    transformedMessages.push(new Message(message.content, 'Dummy', message.id, null));
+                }
+
+                this.messages = transformedMessages;
+
+                return transformedMessages;
+            })
+            .catch((error: Response) => Observable.throw(error.json()));
     }
 
     public deleteMessage(message: Message): void {

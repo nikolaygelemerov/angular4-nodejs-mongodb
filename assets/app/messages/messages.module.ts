@@ -9,14 +9,17 @@ import {MessagesComponent} from "./components/messages/messages.component";
 import {MessageService} from "./services/message.service";
 
 @NgModule({
+    imports: [
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule
+    ],
     declarations: [
         MessageListComponent,
         MessageComponent,
         MessageInputComponent,
         MessagesComponent
     ],
-    imports: [BrowserModule, FormsModule, ReactiveFormsModule],
-    bootstrap: [MessagesComponent],
     providers: [MessageService]
 })
 export class MessagesModule {

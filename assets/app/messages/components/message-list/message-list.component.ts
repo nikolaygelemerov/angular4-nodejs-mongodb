@@ -21,10 +21,4 @@ export class MessageListComponent implements OnInit {
                 });
     }
 
-    public handleEdit(value): void {
-        this.messages.forEach(element => {
-            element.content = value;
-        });
-    }
-
 }

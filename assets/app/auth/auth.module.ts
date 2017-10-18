@@ -9,14 +9,18 @@ import {SignInComponent} from "./components/sign-in/sign-in.component";
 import {SignUpComponent} from "./components/sing-up/sign-up.component";
 
 @NgModule({
+    imports: [
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
+        RouterModule
+    ],
     declarations: [
         AuthenticationComponent,
         LogoutComponent,
         SignInComponent,
         SignUpComponent
     ],
-    imports: [BrowserModule, FormsModule, ReactiveFormsModule, RouterModule],
-    bootstrap: [AuthenticationComponent],
     providers: []
 })
 export class AuthModule {

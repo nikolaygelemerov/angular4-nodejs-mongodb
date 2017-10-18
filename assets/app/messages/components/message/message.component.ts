@@ -10,19 +10,20 @@ import {MessageService} from "../../services/message.service";
 })
 
 export class MessageComponent implements OnInit {
-    @Input('inputMessage') message: Message;
-    @Output() editClicked = new EventEmitter<string>();
+    @Input('inputMessage') public message: Message;
 
     constructor(private messagesService: MessageService) {}
 
     public ngOnInit(): void { }
 
     public onEdit(): void {
-        this.editClicked.emit('A new value');
+        this.messagesService.editMessage(this.message);
     }
 
     public onDelete(): void {
-        console.log('this.message: ', this.message);
-        this.messagesService.deleteMessage(this.message);
+        this.messagesService.deleteMessage(this.message)
+            .subscribe(
+                result => console.log(result)
+            );
     }
 }

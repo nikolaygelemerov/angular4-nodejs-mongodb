@@ -1,11 +1,10 @@
-import { EventEmitter, Injectable } from "@angular/core";
-import {Http, Response, Headers} from "@angular/http";
+import {EventEmitter, Injectable} from "@angular/core";
+import {Response} from "@angular/http";
 import 'rxjs/Rx';
 
 import {Message} from "../configs/message.model";
 import {Observable} from "rxjs/Observable";
 import { HttpService } from "../../shared/services/http.service";
-import { CONTENT_TYPE } from "../../shared/constants/request-headers";
 
 @Injectable()
 
@@ -13,14 +12,11 @@ export class MessageService {
     public messages: Message[] = [];
     public messageIsEdit = new EventEmitter<Message>();
     public messageUrl: string = `http://localhost:3000/message`;
-    public headers: Headers = new Headers({'Content-Type': CONTENT_TYPE});
 
-    constructor(private httpService: Http) {}
+    constructor(private httpService: HttpService) {}
 
     public addMessage(message: Message): Observable<any> {
-        const body = JSON.stringify(message);
-
-        return this.httpService.post(this.messageUrl, body, {headers: this.headers})
+        return this.httpService.post(this.messageUrl, message)
             .map((response: Response) => {
                 const result = response.json();
                 const message = new Message(result.obj.content, 'Nikolay', result.obj._id, null);
@@ -53,9 +49,7 @@ export class MessageService {
     }
 
     public updateMessage(message: Message): Observable<any> {
-        const body = JSON.stringify(message);
-
-        return this.httpService.patch(`${this.messageUrl}/${message.messageId}`, body, {headers: this.headers})
+        return this.httpService.patch(`${this.messageUrl}/${message.messageId}`, message)
             .map((response: Response) => response.json())
             .catch((error: Response) => Observable.throw(error.json()));
     }

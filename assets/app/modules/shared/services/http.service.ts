@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import {Http, Response, Headers} from "@angular/http";
+import {Http, Headers} from "@angular/http";
 import { Observable } from "rxjs/Observable";
 
 import { CONTENT_TYPE } from "../constants/request-headers";
@@ -24,7 +24,7 @@ export class HttpService {
     public patch(url: string, params: any = {}): Observable<any> {
         const body = JSON.stringify(params);
 
-        return this.httpService.post(url, body, {headers: this.headers});
+        return this.httpService.patch(url, body, {headers: this.headers});
     }
 
     public delete(url: string, params: any = {}): Observable<any> {

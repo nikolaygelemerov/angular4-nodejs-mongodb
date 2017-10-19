@@ -1,8 +1,8 @@
 import {RouterModule, Routes} from "@angular/router";
 
-import {MessagesComponent} from "./messages/components/messages/messages.component";
-import {AuthenticationComponent} from "./auth/components/authentication/authentication.component";
-import {AUTH_ROUTES} from "./auth/auth.routes";
+import {MessagesComponent} from "./modules/messages/components/messages/messages.component";
+import {AuthenticationComponent} from "./modules/auth/components/authentication/authentication.component";
+import {AUTH_ROUTES} from "./modules/auth/auth.routes";
 
 const APP_ROUTES: Routes = [
     {

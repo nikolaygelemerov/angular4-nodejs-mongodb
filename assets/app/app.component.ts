@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 
-import { Message } from './messages/configs/message.model';
+import { Message } from './modules/messages/configs/message.model';
 
 @Component({
     selector: 'my-app',

@@ -4,7 +4,7 @@ import 'rxjs/Rx';
 
 import {Message} from "../configs/message.model";
 import {Observable} from "rxjs/Observable";
-import { HttpService } from "../../shared/services/http.service";
+import { HttpService } from "../../shared";
 
 @Injectable()
 

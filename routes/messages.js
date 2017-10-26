@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var jwt = require('jsonwebtoken');
 
 var Message = require('../models/message');
 
@@ -18,6 +19,10 @@ router.get('/', function(req, res, next) {
                 obj: messages
             });
         });
+});
+
+router.use('/', function(req, res, next) {
+    jwt.verify()
 });
 
 router.post('/', function(req, res, next) {

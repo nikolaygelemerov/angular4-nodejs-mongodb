@@ -12,9 +12,10 @@ export class HttpService {
     constructor(private httpService: Http) {}
 
     public post(url: string, params: any = {}): Observable<any> {
+        const token: string = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
         const body = JSON.stringify(params);
 
-        return this.httpService.post(url, body, {headers: this.headers});
+        return this.httpService.post(url + token, body, {headers: this.headers});
     }
 
     public get(url: string, params: any = {}): Observable<any> {
@@ -23,11 +24,14 @@ export class HttpService {
 
     public patch(url: string, params: any = {}): Observable<any> {
         const body = JSON.stringify(params);
+        const token: string = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
 
-        return this.httpService.patch(url, body, {headers: this.headers});
+        return this.httpService.patch(url + token, body, {headers: this.headers});
     }
 
     public delete(url: string, params: any = {}): Observable<any> {
-        return this.httpService.delete(url);
+        const token: string = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
+
+        return this.httpService.delete(url + token);
     }
 }

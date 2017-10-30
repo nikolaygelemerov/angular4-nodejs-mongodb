@@ -26,4 +26,8 @@ export class MessageComponent implements OnInit {
                 result => console.log(result)
             );
     }
+
+    public belongsToUser(): boolean {
+        return localStorage.getItem('userId') == this.message.userId;
+    }
 }

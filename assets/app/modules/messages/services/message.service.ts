@@ -19,7 +19,7 @@ export class MessageService {
         return this.httpService.post(this.messageUrl, message)
             .map((response: Response) => {
                 const result = response.json();
-                const message = new Message(result.obj.content, result.obj.user.firstName, result.obj._id, result.obj.user._id);
+                const message = new Message(result.obj.content, result.obj.firstName, result.obj._id, result.obj.userId);
                 this.messages.push(message);
 
                 return message;

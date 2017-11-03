@@ -6,7 +6,25 @@ import {MessageService} from "../../services/message.service";
 @Component({
     selector: 'app-message',
     templateUrl: './message.component.html',
-    styleUrls: ['./message.component.scss']
+    styles: [`        
+        .author {
+            display: inline-block;
+            width: 80%;
+            font-style: italic;
+            font-size: 12px;
+        }
+
+        .config {
+            display: inline-block;
+            width: 19%;
+            text-align: right;
+            font-size: 12px;
+        }
+        
+        .config a {
+            margin: 0 2px;
+        }
+    `]
 })
 
 export class MessageComponent implements OnInit {

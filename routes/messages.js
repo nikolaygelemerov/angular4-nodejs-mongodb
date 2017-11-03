@@ -49,7 +49,7 @@ router.post('/', function(req, res, next) {
 
         var message = new Message({
             content: req.body.content,
-            user: user,
+            user: user._id,
             firstName: user.firstName,   //needs to be passed because of the ref: 'User' into messages mongoose schema not working properly
             userId: user._id             //needs to be passed because of the ref: 'User' into messages mongoose schema not working properly
         });
